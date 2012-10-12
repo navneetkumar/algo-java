@@ -1,13 +1,16 @@
-
 public class Algorithm {
+	int data = 1;
 
 	public static void main(String[] args) {
-		
-		BTNode left = new BTNode(2,null,null);
-		BTNode right = new BTNode(3,null,null);
-		BTNode root = new BTNode(1,left,right);
-		System.out.println(root.right.data);
-		
+		Algorithm algo = new Algorithm();
+		algo.binaryTree();
+
+	}
+	
+	public void binaryTree(){
+		BTNode root = new BTNode(0, null, null);
+		BinaryTree bt = new BinaryTree(root,4);
+		bt.levelPrint();
 	}
 
 }
