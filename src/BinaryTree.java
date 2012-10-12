@@ -63,10 +63,15 @@ public class BinaryTree {
 					queue.add(temp.right);
 				i++;
 			}
-			System.out.println("---");
+			System.out.println("");
 
 		}
 
+	}
+	
+	public int sumLeaves(BTNode root){
+		if(root.left == null && root.right == null) return root.data;
+		else return sumLeaves(root.left) + sumLeaves(root.right);
 	}
 
 }

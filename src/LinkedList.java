@@ -10,14 +10,15 @@ public class LinkedList {
 	}
 
 	public void print() {
-		for (LLNode iterator = head; iterator.next != null; iterator = iterator.next) {
-			System.out.print(Integer.toString(iterator.data) + "-->");
+		for (LLNode iterator = head; iterator != null; iterator = iterator.next) {
+			System.out.print(Integer.toString(iterator.data));
+			if(iterator.next != null) System.out.print("-->");
 		}
 	}
 
 	public void comparisnSort() {
-		for (LLNode iterator = head; iterator.next != null; iterator = iterator.next) {
-			for (LLNode iterator1 = iterator.next; iterator1.next != null; iterator1 = iterator1.next) {
+		for (LLNode iterator = head; iterator != null; iterator = iterator.next) {
+			for (LLNode iterator1 = iterator.next; iterator1 != null; iterator1 = iterator1.next) {
 				if (iterator.data > iterator1.data) swap(iterator, iterator1);
 			}
 			
@@ -31,7 +32,7 @@ public class LinkedList {
 	}
 
 	private void populate() {
-		int i = 0;
+		int i = 1;
 		LLNode tmp = head;
 		while (i < length) {
 			tmp.next = new LLNode((int) (Math.random() * 100));
