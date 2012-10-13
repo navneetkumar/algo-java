@@ -44,7 +44,10 @@ public class BinaryTree {
 		}
 
 	}
-
+   /**
+    * Prints a binary tree in level order traversal.
+    * @param root
+    */
 	private void levelPrint(BTNode root) {
 		BTNode temp;
 		Queue<BTNode> queue = new ArrayBlockingQueue<BTNode>(50);
@@ -68,10 +71,23 @@ public class BinaryTree {
 		}
 
 	}
-	
+	/**
+	 * Finds summation of all leaf nodes
+	 * @param root
+	 * @return
+	 */
 	public int sumLeaves(BTNode root){
 		if(root.left == null && root.right == null) return root.data;
 		else return sumLeaves(root.left) + sumLeaves(root.right);
+	}
+	/**
+	 * Find if a tree is subtree or not
+	 * @return
+	 */
+	public boolean isSubTree(BTNode T1, BTNode T2){
+		if(T1 == T2) return true;
+		else if(T1.left != null || T1.right !=null) return (isSubTree(T1.left,T2) || isSubTree(T1.right,T2));
+		else return false;
 	}
 
 }

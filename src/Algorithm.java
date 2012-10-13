@@ -9,15 +9,20 @@ public class Algorithm {
 	}
 	
 	public void binaryTree(){
+		System.out.println("\n*****Binary Tree*********\n");
 		int height = 3;
 		BTNode root = new BTNode(0, null, null);
 		BinaryTree bt = new BinaryTree(root,height);
 		System.out.println("Sample BT of height " + Integer.toString(height) + " is:");
 		bt.levelPrint();
 		System.out.println("Summation of all leave nodes:" + Integer.toString(bt.sumLeaves(root)));
+		
+		System.out.println("T1 is subtree of T2: " + Boolean.toString(bt.isSubTree(root.left.right, root)));
+
 	}
 	
 	public void LinkedList(){
+		System.out.println("\n*****Linked List*********\n");
 		int length = 10;
 		LLNode head = new LLNode(2);
 		LinkedList ll = new LinkedList(head,10);
