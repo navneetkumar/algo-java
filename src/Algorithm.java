@@ -17,7 +17,7 @@ public class Algorithm {
 		bt.levelPrint();
 		System.out.println("Summation of all leave nodes:" + Integer.toString(bt.sumLeaves(root)));
 		
-		System.out.println("T1 is subtree of T2: " + Boolean.toString(bt.isSubTree(root.left.right, root)));
+		System.out.println("T1 is subtree of T2: " + Boolean.toString(bt.hasSubTree(root, root.left.right)));
 
 	}
 	

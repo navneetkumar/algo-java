@@ -81,12 +81,21 @@ public class BinaryTree {
 		else return sumLeaves(root.left) + sumLeaves(root.right);
 	}
 	/**
-	 * Find if a tree is subtree or not
+	 * Checks if T1 is a subTree of T2 or vice-versa.
+	 * @param T1
+	 * @param T2
 	 * @return
 	 */
-	public boolean isSubTree(BTNode T1, BTNode T2){
-		if(T1 == T2) return true;
-		else if(T1.left != null || T1.right !=null) return (isSubTree(T1.left,T2) || isSubTree(T1.right,T2));
+	public boolean hasSubTree(BTNode T1, BTNode T2){
+		return isSubTree(T1,T2) || isSubTree(T2,T1);
+	}
+	/**
+	 * Find if whether supertree contains subtree or not
+	 * @return
+	 */
+	public boolean isSubTree(BTNode superTree, BTNode subTree){
+		if(superTree == subTree) return true;
+		else if(superTree.left != null || superTree.right !=null) return (isSubTree(superTree.left,subTree) || isSubTree(superTree.right,subTree));
 		else return false;
 	}
 
