@@ -43,8 +43,11 @@ public class Algorithm {
 		System.out.println("A sample random array of length " + Integer.toString(length) + " is:");
 		sorter.print(array);
 		
-		System.out.println("\nArray after bucket sort is :");
-		sorter.print(sorter.bucketSort(array));
+		System.out.println("\nArray after bubble sort is :");
+		sorter.print(sorter.bubbleSort(array));
+		
+		System.out.println("\nArray after selection sort is :");
+		sorter.print(sorter.selectionSort(array));
 		
 	}
 

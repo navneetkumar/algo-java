@@ -4,12 +4,24 @@ public class Sorting {
 		
 	}
 	
-	public int[] bucketSort(int[] array){
+	public int[] bubbleSort(int[] array){
 		int[] sortedArray = copy(array);
 		for(int i= 0; i < sortedArray.length-1 ; i++){
 			for(int j = i+1; j < sortedArray.length; j++){
 				if(sortedArray[i] > sortedArray[j]) swap(sortedArray, i, j);
 			}
+		}
+		return sortedArray;
+	}
+	
+	public int[] selectionSort(int[] array){
+		int[] sortedArray = copy(array);
+		for(int i= 0; i < sortedArray.length-1 ; i++){
+			int minIndex = i;
+			for(int j = i; j < sortedArray.length; j++){
+				if(sortedArray[minIndex] > sortedArray[j]) minIndex = j;
+			}
+			swap(sortedArray,i,minIndex);
 		}
 		return sortedArray;
 	}
