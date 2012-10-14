@@ -5,6 +5,7 @@ public class Algorithm {
 		Algorithm algo = new Algorithm();
 		algo.binaryTree();
 		algo.LinkedList();
+		algo.sorting();
 
 	}
 	
@@ -31,6 +32,20 @@ public class Algorithm {
 		System.out.println("\nLinked list after comparison sort:");
 		ll.comparisnSort();
 		ll.print();
+	}
+	
+	public void sorting(){
+		System.out.println("\n\n*****Sorting*********\n");
+		int length=5;
+		Sorting sorter = new Sorting();
+		int[] array = sorter.generateArray(length);
+
+		System.out.println("A sample random array of length " + Integer.toString(length) + " is:");
+		sorter.print(array);
+		
+		System.out.println("\nArray after bucket sort is :");
+		sorter.print(sorter.bucketSort(array));
+		
 	}
 
 }
