@@ -49,6 +49,8 @@ public class Algorithm {
 		System.out.println("\nArray after selection sort is :");
 		sorter.print(sorter.selectionSort(array));
 		
+		System.out.println("\nArray after insertion sort is :");
+		sorter.print(sorter.insertionSort(array));
 	}
 
 }

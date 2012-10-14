@@ -1,3 +1,5 @@
+import com.sun.accessibility.internal.resources.accessibility;
+
 public class Sorting {
 	
 	public Sorting(){
@@ -22,6 +24,20 @@ public class Sorting {
 				if(sortedArray[minIndex] > sortedArray[j]) minIndex = j;
 			}
 			swap(sortedArray,i,minIndex);
+		}
+		return sortedArray;
+	}
+	
+	public int[] insertionSort(int[] array){
+		int[] sortedArray = copy(array);
+		for(int i=1;i< sortedArray.length; i++){
+			int pivot = sortedArray[i];
+			int j = i;
+			while(j>0 && sortedArray[j-1] > pivot){
+				sortedArray[j] = sortedArray[j-1];
+//				j--;
+			}
+			sortedArray[j] = pivot;
 		}
 		return sortedArray;
 	}
