@@ -3,6 +3,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
+import com.sun.org.apache.xpath.internal.operations.And;
+
 
 public class BinaryTree {
 	public BTNode root;
@@ -85,7 +87,7 @@ public class BinaryTree {
 		data[0] = new LinkedList<Integer>();
 		data[1] = new LinkedList<Integer>();
 		
-		Queue<BTNode> queue = new ArrayBlockingQueue<BTNode>(50);
+		Queue<BTNode> queue = new ArrayBlockingQueue<BTNode>(100);
 		queue.add(root);
 		int level = 0;
 		while (!queue.isEmpty()) {
@@ -110,16 +112,27 @@ public class BinaryTree {
 	public void print(LinkedList<Integer>[] data){
 		int height = data.length;
 		int max_breadth= (int)(Math.pow(2.0, (double)height) -1);
-		String[][] str = new String[height][max_breadth];
+		String[][] str = new String[2*height-1][max_breadth];
 		
 		int start,distance;
 		for(int level=0;level<height;level++){
 			start = (int)(Math.pow(2.0, (double)(height - level-1)) - 1);
 			distance = (int)Math.pow(2.0, (double)(height-level));
 			Iterator<Integer> values = data[level].iterator();
-			
+			int str_level = level*2;
+			boolean should_print_dashes = true;
 			for(int x=start;x< max_breadth; x=x+distance){
-				str[level][x] = String.format("%02d",values.next().intValue());
+				str[str_level][x] = String.format("%03d",values.next().intValue());
+				if(str_level>0) str[str_level-1][x] = should_print_dashes ? "|  " : "  |";
+				if(str_level>1){
+					if(should_print_dashes){
+						for(int y=x; y<=x+distance && y<max_breadth; y++){
+							if(str[str_level-2][y] == null) str[str_level-2][y] = "---";
+						}	
+					}
+					should_print_dashes = !should_print_dashes;	
+				}
+				
 			}
 		}
 		print(str);
@@ -129,10 +142,10 @@ public class BinaryTree {
 		for(int m=0; m<str.length; m++){
 			for(int n=0; n<str[m].length; n++){
 				String value = str[m][n];
-				if(value==null) value = "  ";
-				System.out.print(value + " ");
+				if(value==null) value = "   ";
+				System.out.print(value);
 			}
-			System.out.println("\n");
+			System.out.println("");
 		}
 	}
 	
