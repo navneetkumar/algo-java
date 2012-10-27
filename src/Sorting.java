@@ -35,12 +35,19 @@ public class Sorting {
 			int j = i;
 			while(j>0 && sortedArray[j-1] > pivot){
 				sortedArray[j] = sortedArray[j-1];
-//				j--;
+				j--;
 			}
 			sortedArray[j] = pivot;
 		}
 		return sortedArray;
 	}
+	
+	public int[] mergeSort(int[] array){
+		int[] sortedArray = copy(array);
+		return sortedArray;
+		
+	}
+	
 	
 	public int[] generateArray(int size){
 		int[] randomArray = new int[size];

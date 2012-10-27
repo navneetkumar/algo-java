@@ -4,9 +4,10 @@ public class Algorithm {
 	public static void main(String[] args) {
 		Algorithm algo = new Algorithm();
 		algo.binaryTree();
+		algo.binarySearchTree();
 		algo.LinkedList();
 		algo.sorting();
-
+//		algo.trie();
 	}
 	
 	public void binaryTree(){
@@ -21,6 +22,17 @@ public class Algorithm {
 		System.out.println("T1 is subtree of T2: " + Boolean.toString(bt.hasSubTree(root, root.left.right)));
 
 	}
+	
+	public void binarySearchTree(){
+		System.out.println("\n*****Binary Search Tree*********\n");
+		int height = 4 ;
+		BinaryTree bt = new BinaryTree(height);
+		System.out.println("Sample BST of height " + Integer.toString(height) + " is:");
+		BTNode root = bt.generateBST(height);
+		bt.levelPrint(root);
+
+	}
+	
 	
 	public void LinkedList(){
 		System.out.println("\n*****Linked List*********\n");
@@ -51,6 +63,16 @@ public class Algorithm {
 		
 		System.out.println("\nArray after insertion sort is :");
 		sorter.print(sorter.insertionSort(array));
+	}
+	
+	public void trie(){
+		Trie trie = new Trie("abc");
+//		trie.insert();
+		trie.print();
+	}
+	
+	public void sum(BTNode root){
+		
 	}
 
 }
