@@ -1,13 +1,32 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 public class Algorithm {
 	int data = 1;
 
 	public static void main(String[] args) {
 		Algorithm algo = new Algorithm();
+		algo.outputToReadMe();
 		algo.binaryTree();
 		algo.binarySearchTree();
 		algo.LinkedList();
 		algo.sorting();
-//		algo.trie();
+		//algo.trie();
+	}
+	
+	public void outputToReadMe(){
+		File file = new File("README");  
+		FileOutputStream fis = null;
+		try {
+			fis = new FileOutputStream(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}  
+		PrintStream out = new PrintStream(fis);
+		System.setOut(out);
+		System.out.println("This is a generated README file which shows the output of this repo.\n");
 	}
 	
 	public void binaryTree(){
