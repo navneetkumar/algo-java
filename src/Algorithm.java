@@ -30,6 +30,10 @@ public class Algorithm {
 		System.out.println("Sample BST of height " + Integer.toString(height) + " is:");
 		BTNode root = bt.generateBST(height);
 		bt.levelPrint(root);
+		bt.replaceSum(root);
+		
+		System.out.println("\nBST after replacement\n");
+		bt.levelPrint(root);
 
 	}
 	

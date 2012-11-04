@@ -70,9 +70,9 @@ public class BinaryTree {
 
 	private void printTree(BTNode root) {
 		if (root != null) {
+			printTree(root.right);
 			System.out.println(root.data);
 			printTree(root.left);
-			printTree(root.right);
 		}
 
 	}
@@ -163,16 +163,16 @@ public class BinaryTree {
 //		root.data = Sum(root.left) + sum(root.right);
 	}
 	public int replaceSum(BTNode root){
-		int root_data = root.data;
-		if(root.right == null){
-			root.data = 0;
-			return root_data;
+		if(root.right == null && root.right == null){
+			return root.data;
 		}
-		else {
+		else{
+			int root_data = root.data;
 			int right_sum = replaceSum(root.right);
 			root.data = right_sum;
-			root.left.data = right_sum + root_data;
-			return right_sum + root_data + replaceSum(root.left);
+			int left_sum = replaceSum(root.left);
+			root.left.data = root_data + right_sum + left_sum;
+			return root_data + right_sum + left_sum;
 		}
 		
 	}
