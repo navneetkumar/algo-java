@@ -9,5 +9,9 @@ public class BTNode {
 		this.right = right;
 	}
 	
+	public String toString(){
+		return Integer.toString(this.data);
+		
+	}
 
 }

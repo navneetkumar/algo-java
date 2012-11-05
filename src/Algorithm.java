@@ -49,11 +49,16 @@ public class Algorithm {
 		System.out.println("Sample BST of height " + Integer.toString(height) + " is:");
 		BTNode root = bt.generateBST(height);
 		bt.levelPrint(root);
-		bt.replaceSum(root);
+		
+		BTNode node1 = root.left;
+		BTNode node2 = root.left.right;
+		
+		System.out.println("\nLCA of the node " + node1.toString() + " and " + node2.toString() +" in the BST is: " + bt.findLCA(root, node1, node2).toString());
 		
 		System.out.println("\nBST after replacement\n");
+		bt.replaceSum(root,0);
 		bt.levelPrint(root);
-
+		
 	}
 	
 	

@@ -162,19 +162,22 @@ public class BinaryTree {
 	public void sum(BTNode root){
 //		root.data = Sum(root.left) + sum(root.right);
 	}
-	public int replaceSum(BTNode root){
-		if(root.right == null && root.right == null){
-			return root.data;
+	public int replaceSum(BTNode root,int sum){
+		if(root.right!=null) sum = replaceSum(root.right, sum);
+		int root_data = root.data;
+		root.data = sum;
+		sum = sum + root_data;
+		if(root.left!=null) sum= replaceSum(root.left, sum);
+		return sum;
+	}
+	
+	public BTNode findLCA(BTNode root, BTNode node1, BTNode node2){
+		while(true && root!= null){
+			if((root.data > node1.data && root.data < node2.data) || (root.data > node2.data && root.data < node1.data)) return root;
+			if(root.data > node1.data) root = root.left;
+			else root = root.right;
 		}
-		else{
-			int root_data = root.data;
-			int right_sum = replaceSum(root.right);
-			root.data = right_sum;
-			int left_sum = replaceSum(root.left);
-			root.left.data = root_data + right_sum + left_sum;
-			return root_data + right_sum + left_sum;
-		}
-		
+		return new BTNode(-1, null, null);
 	}
 	private int random(){
 		return (int)(Math.random()*10);
