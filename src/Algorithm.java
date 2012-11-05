@@ -39,7 +39,9 @@ public class Algorithm {
 		System.out.println("Summation of all leave nodes:" + Integer.toString(bt.sumLeaves(root)));
 		
 		System.out.println("T1 is subtree of T2: " + Boolean.toString(bt.hasSubTree(root, root.left.right)));
-
+		
+		System.out.println("\nSample tree is BST: " + Boolean.toString(bt.isBST(root)));
+		
 	}
 	
 	public void binarySearchTree(){
@@ -50,6 +52,7 @@ public class Algorithm {
 		BTNode root = bt.generateBST(height);
 		bt.levelPrint(root);
 		
+		System.out.println("\nSample tree is BST: " + Boolean.toString(bt.isBST(root)));
 		BTNode node1 = root.left;
 		BTNode node2 = root.left.right;
 		

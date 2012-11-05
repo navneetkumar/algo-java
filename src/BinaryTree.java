@@ -170,6 +170,16 @@ public class BinaryTree {
 		if(root.left!=null) sum= replaceSum(root.left, sum);
 		return sum;
 	}
+	public boolean isBST(BTNode root){
+		if(root!=null) {
+			boolean isBST = true;
+			if(root.left!=null) isBST = root.data > root.left.data;
+			if(root.right!=null) isBST = isBST && root.data < root.right.data;
+			return isBST(root.left) && isBST(root.right) && isBST;
+		}
+		else return true;
+	}
+	
 	
 	public BTNode findLCA(BTNode root, BTNode node1, BTNode node2){
 		while(true && root!= null){
@@ -180,7 +190,9 @@ public class BinaryTree {
 		return new BTNode(-1, null, null);
 	}
 	private int random(){
-		return (int)(Math.random()*10);
+		int result = (int)(Math.random()*10);
+		if(result == 0) return random();
+		else return result;
 	}
 	/**
 	 * Checks if T1 is a subTree of T2 or vice-versa.
