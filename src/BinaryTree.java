@@ -83,9 +83,9 @@ public class BinaryTree {
 	@SuppressWarnings("unchecked")
 	public void levelPrint(BTNode root) {
 		BTNode temp;
+		int height = max_height(root);
 		LinkedList<Integer>[] data = (LinkedList<Integer>[])new LinkedList[height];
-		data[0] = new LinkedList<Integer>();
-		data[1] = new LinkedList<Integer>();
+		for(int i=0;i<data.length;i++) data[i] = new LinkedList<Integer>();
 		
 		Queue<BTNode> queue = new ArrayBlockingQueue<BTNode>(100);
 		queue.add(root);
@@ -122,8 +122,8 @@ public class BinaryTree {
 			int str_level = level*2;
 			boolean should_print_dashes = true;
 			for(int x=start;x< max_breadth; x=x+distance){
-				str[str_level][x] = String.format("%03d",values.next().intValue());
-				if(str_level>0) str[str_level-1][x] = should_print_dashes ? "|  " : "  |";
+				if(values.hasNext()) str[str_level][x] = String.format("%03d",values.next().intValue());
+				if(str_level>0 && str[str_level][x]!= null) str[str_level-1][x] = should_print_dashes ? "|  " : "  |";
 				if(str_level>1){
 					if(should_print_dashes){
 						for(int y=x; y<=x+distance && y<max_breadth; y++){
@@ -138,6 +138,15 @@ public class BinaryTree {
 		print(str);
 	}
 	
+	public int max_height(BTNode root){
+		if(root==null) return 0;
+		else {
+			int max_height = max_height(root.left);
+			int right_height = max_height(root.right);
+			if(max_height < right_height) max_height = right_height;
+			return max_height+1;
+		}
+	}
 	private void print(String[][] str){
 		for(int m=0; m<str.length; m++){
 			for(int n=0; n<str[m].length; n++){
@@ -173,13 +182,22 @@ public class BinaryTree {
 	public boolean isBST(BTNode root){
 		if(root!=null) {
 			boolean isBST = true;
-			if(root.left!=null) isBST = root.data > root.left.data;
-			if(root.right!=null) isBST = isBST && root.data < root.right.data;
+			if(root.left!=null) isBST = root.data > max(root.left).data;
+			if(root.right!=null) isBST = isBST && root.data < min(root.right).data;
 			return isBST(root.left) && isBST(root.right) && isBST;
 		}
 		else return true;
 	}
 	
+	private BTNode max(BTNode root){
+		if(root.right!=null) return max(root.right);
+		else return root;
+	}
+	
+	private BTNode min(BTNode root){
+		if(root.left!=null) return min(root.left);
+		else return root;
+	}
 	
 	public BTNode findLCA(BTNode root, BTNode node1, BTNode node2){
 		while(true && root!= null){
