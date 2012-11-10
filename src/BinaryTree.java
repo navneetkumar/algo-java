@@ -189,6 +189,27 @@ public class BinaryTree {
 		else return true;
 	}
 	
+	private void convertToStack(BTNode root,Stack data_stack){
+		if(root!=null) {
+			if(root.left!=null) convertToStack(root.left,data_stack);
+			data_stack.push(root.data);
+			if(root.right!=null) convertToStack(root.right,data_stack);
+		}
+	}
+	
+	public boolean isBST1(BTNode root){
+		Stack ds = new Stack();
+		convertToStack(root, ds);
+		int last_element = ds.pop();
+		while(!ds.isEmpty()){
+			int current_data = ds.pop();
+			if(last_element < current_data) return false;
+			else last_element = current_data;
+		}
+		return true;
+		
+	}
+	
 	private BTNode max(BTNode root){
 		if(root.right!=null) return max(root.right);
 		else return root;

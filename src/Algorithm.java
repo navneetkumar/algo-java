@@ -13,6 +13,7 @@ public class Algorithm {
 		algo.binarySearchTree();
 		algo.LinkedList();
 		algo.sorting();
+		algo.stack();	
 		//algo.trie();
 	}
 	
@@ -52,7 +53,8 @@ public class Algorithm {
 		BTNode root = bt.generateBST(height);
 		bt.levelPrint(root);
 		
-		System.out.println("\nSample tree is BST: " + Boolean.toString(bt.isBST(root)));
+		System.out.println("\nSample tree is BST in O(n^2): " + Boolean.toString(bt.isBST(root)));
+		System.out.println("Sample tree is BST in O(n): " + Boolean.toString(bt.isBST1(root)));
 		BTNode node1 = root.left;
 		BTNode node2 = root.left.right;
 		
@@ -94,6 +96,15 @@ public class Algorithm {
 		
 		System.out.println("\nArray after insertion sort is :");
 		sorter.print(sorter.insertionSort(array));
+	}
+	
+	public void stack(){
+		System.out.println("\n*****Stack*********\n");
+		int depth = 4;
+		Stack data_stack = new Stack();
+		System.out.println("\nA sample stack of depth " + Integer.toString(depth) + " is:");
+		data_stack.generateData(depth);
+		data_stack.print();
 	}
 	
 	public void trie(){
