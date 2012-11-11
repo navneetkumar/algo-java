@@ -52,9 +52,14 @@ public class Algorithm {
 		System.out.println("Sample BST of height " + Integer.toString(height) + " is:");
 		BTNode root = bt.generateBST(height);
 		bt.levelPrint(root);
+//		uncomment to convert BST to non-BST
+//		root.left.right.data = root.data +1;
+//		root.left.right.right.data = root.left.right.data +1;
+//		bt.levelPrint(root);
 		
 		System.out.println("\nSample tree is BST in O(n^2): " + Boolean.toString(bt.isBST(root)));
 		System.out.println("Sample tree is BST in O(n): " + Boolean.toString(bt.isBST1(root)));
+		System.out.println("Sample tree is BST in O(n) without auxilary stack: " + Boolean.toString(bt.isBST2(root)));
 		BTNode node1 = root.left;
 		BTNode node2 = root.left.right;
 		

@@ -207,7 +207,15 @@ public class BinaryTree {
 			else last_element = current_data;
 		}
 		return true;
-		
+	}
+	
+	public boolean isBST2(BTNode root){
+		return isBST2(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	}
+	
+	private boolean isBST2(BTNode root,int min, int max){
+		if(root!=null) return root.data > min && root.data < max && isBST2(root.left, min, root.data) && isBST2(root.right, root.data, max);
+		else return true;
 	}
 	
 	private BTNode max(BTNode root){
