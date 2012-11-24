@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+
+import com.sun.tools.javac.code.Attribute.Array;
 
 public class Algorithm {
 	int data = 1;
@@ -14,7 +17,7 @@ public class Algorithm {
 		algo.LinkedList();
 		algo.sorting();
 		algo.stack();	
-		//algo.trie();
+		algo.trie();
 	}
 	
 	public void outputToReadMe(){
@@ -113,9 +116,12 @@ public class Algorithm {
 	}
 	
 	public void trie(){
-		Trie trie = new Trie("abc");
-//		trie.insert();
-		trie.print();
+		System.out.println("\n*****Trie*********\n");
+		Trie trie = new Trie();
+		String[] words = {"carvan","carraige","car","canvas","base","basket"};
+		TrieNode root = trie.generate(words);
+		System.out.println("\nA sample trie of strings " + Arrays.toString(words));
+		trie.print(root);
 	}
 	
 	public void sum(BTNode root){

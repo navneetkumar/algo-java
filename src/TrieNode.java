@@ -1,6 +1,4 @@
 import java.util.LinkedList;
-
-
 public class TrieNode {
 	public char data;
 	public boolean is_end;
@@ -25,11 +23,15 @@ public class TrieNode {
 		this.childs.add(new TrieNode(c));
 	}
 	
-	public void print(){
-		System.out.println("{ "+ data + ":{");
-		for(TrieNode child:childs){
-			System.out.println("{ "+ child.data + " }");
+	public TrieNode insert(String str){
+		TrieNode current = this;
+		for(int i=0;i< str.length();i++){
+			char c = str.charAt(i);
+				if( current.childAt(c) == null) current.addChild(c);
+				current = current.childAt(c);	
+			if(i == str.length()-1) current.is_end = true;
 		}
+		return this;
 	}
 
 }

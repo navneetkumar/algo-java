@@ -1,24 +1,29 @@
-
 public class Trie {
-	public TrieNode root;
-	public Trie(String str){
-		this.root = new TrieNode(' ');
+	public Trie(){
 	}
 	
-	public void insert(String str){
-		TrieNode current = this.root;
-		for(int i=0;i< str.length();i++){
-			char c = str.charAt(i);
-			if( current.childAt(c) == null) current.addChild(c);
-			current = current.childAt(c);
-			if(i == str.length()-1) current.is_end = true;
+	public void print(TrieNode root){
+		print(root,0);
+	}
+	
+	public TrieNode generate(String[] words){
+		TrieNode root = new TrieNode('*');
+		for(String word:words){
+			root.insert(word);
+		}
+		return root;
+		
+	}
+	
+	private void print(TrieNode root, int depth){
+		for(int i=0;i<depth-1;i++){
+			System.out.print("|  ");
+		}
+		if(depth>0) System.out.print("|__");
+		System.out.println(root.data);
+		for(TrieNode child: root.childs){
+			print(child,depth+1);
 		}
 	}
 	
-	public void print(){
-		this.root = new TrieNode('a');
-		this.root.childs.add(new TrieNode('b'));
-		this.root.print();
-	}
-
 }

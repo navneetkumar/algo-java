@@ -17,47 +17,47 @@ Sample tree is BST: false
 *****Binary Search Tree*********
 
 Sample BST of height 4 is:
-         ------------047------------         
+         ------------048------------         
          |                         |         
-   ------016------         ------069------   
+   ------018------         ------074------   
    |             |         |             |   
----007---   ---030---   ---055---   ---081---
+---007---   ---032---   ---063---   ---086---
 |       |   |       |   |       |   |       |
-003   008   024   039   050   061   078   084
+004   016   027   039   057   066   079   088
 
 Sample tree is BST in O(n^2): true
 Sample tree is BST in O(n): true
 Sample tree is BST in O(n) without auxilary stack: true
 
-LCA of the node 16 and 30 in the BST is: 24
+LCA of the node 18 and 32 in the BST is: 27
 
 BST after replacement
 
-         ------------478------------         
+         ------------513------------         
          |                         |         
-   ------618------         ------243------   
+   ------659------         ------253------   
    |             |         |             |   
----642---   ---564---   ---373---   ---084---
+---693---   ---600---   ---393---   ---088---
 |       |   |       |   |       |   |       |
-649   634   594   525   428   312   165   000
+700   677   632   561   456   327   174   000
 
 *****Linked List*********
 
 Random Linked list of length 10 is:
-2-->38-->27-->15-->10-->75-->82-->98-->94-->94
+2-->6-->2-->52-->97-->35-->64-->69-->95-->0
 Linked list after comparison sort:
-2-->10-->15-->27-->38-->75-->82-->94-->94-->98
+0-->2-->2-->6-->35-->52-->64-->69-->95-->97
 
 *****Sorting*********
 
 A sample random array of length 5 is:
-23 | 4 | 70 | 59 | 46 | 
+44 | 80 | 12 | 21 | 1 | 
 Array after bubble sort is :
-4 | 23 | 46 | 59 | 70 | 
+1 | 12 | 21 | 44 | 80 | 
 Array after selection sort is :
-4 | 23 | 46 | 59 | 70 | 
+1 | 12 | 21 | 44 | 80 | 
 Array after insertion sort is :
-4 | 23 | 46 | 59 | 70 | 
+1 | 12 | 21 | 44 | 80 | 
 *****Stack*********
 
 
@@ -70,3 +70,31 @@ A sample stack of depth 4 is:
 ---
 1
 ---
+
+*****Trie*********
+
+
+A sample trie of strings [carvan, carraige, car, canvas, base, basket]
+*
+|__c
+|  |__a
+|  |  |__r
+|  |  |  |__v
+|  |  |  |  |__a
+|  |  |  |  |  |__n
+|  |  |  |__r
+|  |  |  |  |__a
+|  |  |  |  |  |__i
+|  |  |  |  |  |  |__g
+|  |  |  |  |  |  |  |__e
+|  |  |__n
+|  |  |  |__v
+|  |  |  |  |__a
+|  |  |  |  |  |__s
+|__b
+|  |__a
+|  |  |__s
+|  |  |  |__e
+|  |  |  |__k
+|  |  |  |  |__e
+|  |  |  |  |  |__t
