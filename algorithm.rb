@@ -1,4 +1,8 @@
-require './linked_list'
+base_dir = File.join(File.dirname(__FILE__),"src-ruby","*.rb")
+Dir[base_dir].each do |file|
+  require file
+end
+
 class Algorithm
   def run
     linked_list
@@ -14,3 +18,5 @@ end
 algorithm = Algorithm.new
 
 algorithm.run
+
+require 'pry'; pry
