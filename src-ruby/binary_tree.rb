@@ -41,4 +41,16 @@ class BTNode
     right_height = root.right ? root.right.height : 0
     [left_height,right_height].max + 1
   end
+
+  def width
+    (2**height)-1
+  end
+
+  def to_s
+    root = self
+    return root.data.to_s if root.left.nil? and root.right.nil?
+
+    str = root.left.to_s + "----" + root.right.to_s
+    "----" + root.data.to_s + "-----" + "\n|        |\n" + str
+  end
 end
