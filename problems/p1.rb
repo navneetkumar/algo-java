@@ -53,4 +53,4 @@ class Board
 end
 
 board = Board.new
-boad.get_min
+board.get_min
